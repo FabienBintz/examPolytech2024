@@ -1,0 +1,56 @@
+services:
+  db:
+    image: mysql:8
+    # ports:
+    #  - 3306:3306 # Inutile si on n'a pas besoin de se connecter en docker
+    environment:
+      MYSQL_ROOT_PASSWORD: ADMIN
+      MYSQL_PASSWORD: ADMIN
+      MYSQL_USER: SA
+      MYSQL_DATABASE: superheroes
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - network
+    healthcheck:
+      test: mysqladmin ping -h localhost
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+
+  backend:
+    image: java
+    build: 
+      context: java
+      dockerfile: Dockerfile
+    container_name: java
+    environment:
+      SPRING_DATASOURCE_PLATFORM: mysql
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/superheroes
+      SPRING_DATASOURCE_USERNAME: SA
+      SPRING_DATASOURCE_PASSWORD: ADMIN
+    ports:
+      - 8448:80
+    networks:
+      - network
+    depends_on:
+      - db
+
+
+  front:
+    image: angular
+    build:
+      context: angular
+      dockerfile: Dockerfile
+    container_name: angular
+    environment:
+      BACKEND_URL: http://localhost:8448
+    ports:
+      - 8080:80
+
+volumes:
+  db_data:
+
+networks:
+  network:

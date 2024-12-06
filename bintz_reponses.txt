@@ -1,0 +1,32 @@
+16) Qu'est ce que Docker ? A quoi cela sert-il ?
+
+Docker est un système de gestion de conteneurs.
+Il permet de créer des environnements (prod, dev, staging ...) similaires très rapidement.
+Docker permet de simplifier les mises en production.
+
+
+
+17) Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
+
+La CICD permet (continuous integration and continuous delivery) consiste à automatiser les mises à jour de code et les mises en production.
+C'est utile car on évite les erreurs humaines. On diminue aussi le nombre de bugs en production et on peut livrer les nouvelles fonctionnalités plus régulièrement.
+
+
+18) Qu'avez vous pensez du cours ?
+Le cours est top. On a fait le tour complet de Docker et du CI en faisant tous les exemples.
+Les étapes de frustration sont énervantes mais très utiles pour comprendre les nouvelles fonctionnalités abordées.
+
+
+19) Surprenez moi
+
+Quel genre de médecin répare les sites Web défectueux ?
+
+
+Un URLologue.
+
+
+
+20) Pusher votre code sur github avec votre fichier de réponse aux questions et envoyer moi les urls de vos repos github.
+
+
+
